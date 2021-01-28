@@ -2,6 +2,7 @@
 using Playground.Authors;
 using Playground.Books;
 using Playground.Customers;
+using Playground.Payments;
 using Volo.Abp;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 
@@ -52,6 +53,15 @@ namespace Playground.EntityFrameworkCore
                 b.ConfigureByConvention();
                 b.Property(x => x.Name).IsRequired();
                 b.Property(x => x.Email).IsRequired();
+            });
+
+            builder.Entity<Payment>(b => {
+                b.ToTable(PlaygroundConsts.DbTablePrefix + "Payments",
+                    PlaygroundConsts.DbSchema);
+                b.ConfigureByConvention();
+                b.Property(x => x.PaymentDate).IsRequired();
+                b.Property(x => x.Amount).IsRequired();
+                b.HasOne<Customer>().WithMany().HasForeignKey(x => x.CustomerId).IsRequired();
             });
 
             /* Configure your own tables/entities inside here */
