@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Playground.Authors;
 using Playground.Books;
+using Playground.Customers;
 using Volo.Abp;
 using Volo.Abp.EntityFrameworkCore.Modeling;
 
@@ -43,6 +44,14 @@ namespace Playground.EntityFrameworkCore
                 b.Property(x => x.StartDate).IsRequired();
                 b.Property(x => x.EndDate).IsRequired();
                 b.HasOne<Book>().WithMany().HasForeignKey(x => x.BookId).IsRequired();
+            });
+
+            builder.Entity<Customer>(b => {
+                b.ToTable(PlaygroundConsts.DbTablePrefix + "Customers",
+                    PlaygroundConsts.DbSchema);
+                b.ConfigureByConvention();
+                b.Property(x => x.Name).IsRequired();
+                b.Property(x => x.Email).IsRequired();
             });
 
             /* Configure your own tables/entities inside here */

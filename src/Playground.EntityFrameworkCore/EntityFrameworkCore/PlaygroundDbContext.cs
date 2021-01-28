@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Playground.Authors;
 using Playground.Books;
+using Playground.Customers;
 using Playground.Users;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
@@ -27,6 +28,7 @@ namespace Playground.EntityFrameworkCore
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<RentalRecord> RentalRecords { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside PlaygroundDbContextModelCreatingExtensions.ConfigurePlayground

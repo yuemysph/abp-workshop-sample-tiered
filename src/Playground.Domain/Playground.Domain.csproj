@@ -27,5 +27,7 @@
   <ItemGroup>
     <Folder Include="Books\" />
     <Folder Include="Authors\" />
+    <Folder Include="Payments\" />
+    <Folder Include="Customers\" />
   </ItemGroup>
 </Project>
