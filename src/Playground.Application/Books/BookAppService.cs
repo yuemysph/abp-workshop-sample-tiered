@@ -26,6 +26,8 @@ namespace Playground.Books
 
         private readonly IAuthorRepository _authorRepository;
 
+     
+
         public BookAppService(IRepository<Book, Guid> repository,
             IAuthorRepository authorRepository)
             : base(repository)
@@ -36,6 +38,8 @@ namespace Playground.Books
             UpdatePolicyName = PlaygroundPermissions.Books.Edit;
             DeletePolicyName = PlaygroundPermissions.Books.Delete;
             _authorRepository = authorRepository;
+            
+            
         }
 
         public BookDto GetSomething(Guid id)

@@ -35,6 +35,16 @@ namespace Playground.EntityFrameworkCore
                 b.HasIndex(x => x.Name);
             });
 
+            builder.Entity<RentalRecord>( b => {
+                b.ToTable(PlaygroundConsts.DbTablePrefix + "RentalRecords",
+                    PlaygroundConsts.DbSchema);
+                b.ConfigureByConvention();
+                b.Property(x => x.CustomerId).IsRequired();
+                b.Property(x => x.StartDate).IsRequired();
+                b.Property(x => x.EndDate).IsRequired();
+                b.HasOne<Book>().WithMany().HasForeignKey(x => x.BookId).IsRequired();
+            });
+
             /* Configure your own tables/entities inside here */
 
             //builder.Entity<YourEntity>(b =>
