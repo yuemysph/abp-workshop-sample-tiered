@@ -45,6 +45,8 @@ namespace Playground.EntityFrameworkCore
                 b.Property(x => x.StartDate).IsRequired();
                 b.Property(x => x.EndDate).IsRequired();
                 b.HasOne<Book>().WithMany().HasForeignKey(x => x.BookId).IsRequired();
+                b.HasOne<Customer>().WithMany().HasForeignKey(x => x.CustomerId).IsRequired();
+                b.HasOne<Payment>().WithMany().HasForeignKey(x => x.PaymentId).IsRequired();
             });
 
             builder.Entity<Customer>(b => {
