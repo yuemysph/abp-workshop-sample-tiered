@@ -55,6 +55,8 @@ namespace Playground.EntityFrameworkCore
                 b.ConfigureByConvention();
                 b.Property(x => x.Name).IsRequired();
                 b.Property(x => x.Email).IsRequired();
+                b.HasIndex(x => x.Email).IsUnique();
+                
             });
 
             builder.Entity<Payment>(b => {

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Playground.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
@@ -9,9 +10,10 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Playground.Migrations
 {
     [DbContext(typeof(PlaygroundMigrationsDbContext))]
-    partial class PlaygroundMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210128074408_updateCustomerUniqueEmailConstraint")]
+    partial class updateCustomerUniqueEmailConstraint
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
